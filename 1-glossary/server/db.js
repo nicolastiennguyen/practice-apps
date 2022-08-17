@@ -18,13 +18,26 @@ let save = (wordsAndDef, callback) => {
     console.log('save fn is working');
     callback(null);
   })
-  .catch((error) => {
-    console.log('save fn is not functioning')
-    callback(error);
+  .catch((err) => {
+    console.log('save fn is not working');
+    callback(err);
+  })
+}
+
+let get = (callback) => {
+  Glossary.find({})
+  .then((data) => {
+    console.log('get fn is working');
+    callback(null, data);
+  })
+  .catch((err) => {
+    console.log('get fn is not working');
+    callback(err);
   })
 }
 
 // 3. Export the models
 module.exports.save = save;
+module.exports.get = get;
 
 // 4. Import the models into any modules that need them

@@ -10,9 +10,9 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 
 // routes:
-app.get('/glossary', (req, res) => {
+app.post('/glossary', (req, res) => {
   console.log('route is working')
-  controllers.get(req, res);
+  controllers.post(req, res);
 });
 
 app.listen(PORT);

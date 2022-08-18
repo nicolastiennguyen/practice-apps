@@ -35,27 +35,30 @@ class App extends React.Component {
       })
   }
 
+  // idea: filter based on database terms, so that we don't keep filtering based on the current state
+  // this may fix the issue of deleting characters on search and not re-filtering properly
   handleSearch(e) {
     let filteredTerms = this.state.DisplayedTerms.filter((term) => {
       return term.word.toLowerCase().includes(e.target.value.toLowerCase())
     })
-    if (filteredTerms.length === 0) {
-      this.setState({DisplayedTerms:[{word: 'no words by that name found'}]})
-    } else {
+    if (filteredTerms.length !== 0) {
       this.setState({DisplayedTerms:filteredTerms})
-    };
-    this.setState({search: e.target.value});
-    if (e.target.value === '') {
-      this.setState({DisplayedTerms:seedData})
+    } else {
+      this.setState({DisplayedTerms:[{word: 'no words by that name found'}]})
     }
-  }
+    if (e.target.value === '') {
+      axios.get('glossary')
+      .then((res) => {
+        this.setState({DisplayedTerms: res.data})
+      })
+    }
+}
 
   handleSubmit(e) {
     e.preventDefault();
     let wordEntry = this.state.wordEntry;
     let definitionEntry = this.state.definitionEntry;
     if (wordEntry !== '' && definitionEntry !== '') {
-      console.log('submit working properly')
       axios.post('/glossary', {
         word: wordEntry,
         definition: definitionEntry

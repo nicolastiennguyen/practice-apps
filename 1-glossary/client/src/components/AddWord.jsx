@@ -3,14 +3,11 @@ import React from 'react';
 class AddWord extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      WordEntry: ''
-    }
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    console.log(e.target.value)
+    this.props.onWordEntryChange(e.target.value, undefined)
   }
 
   render() {

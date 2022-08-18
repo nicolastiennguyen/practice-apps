@@ -50,14 +50,13 @@ class App extends React.Component {
     }
   }
 
-  handleAdd(definitionEntry) {
-    // let wordEntry = this.state.wordEntry;
-    // let definitionEntry = this.state.definitionEntry;
+  handleAdd(wordEntry, definitionEntry) {
     this.setState({
-      // wordEntry: wordEntry,
+      wordEntry: wordEntry,
       definitionEntry: definitionEntry
     })
-    console.log(this.state.definitionEntry, 'state here')
+    console.log(this.state.wordEntry, 'wordEntry state here')
+    console.log(this.state.definitionEntry, 'definitionEntry state here')
     // if (wordEntry !== '' && definitionEntry !== '') {
     //   // axios.post
     //   // axios.get
@@ -71,8 +70,8 @@ class App extends React.Component {
       <h4>There are {this.state.DisplayedTerms.length} terms in your glossary.</h4>
       <form onSubmit = {this.handleAdd}>
         Add your own Words and Definitions here:
-        <AddWord wordEntry = {this.state.wordEntry} handleAdd = {this.handleAdd}/>
-        <AddDefinition definitionEntry = {this.state.definitionEntry} onDefinitionEntryChange = {this.handleAdd}/>
+        <AddWord onWordEntryChange = {this.handleAdd}/>
+        <AddDefinition onDefinitionEntryChange = {this.handleAdd}/>
         <button type = "submit"> Enter </button>
       </form>
       <Search handleSearch = {this.handleSearch}/>
@@ -83,3 +82,17 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+// handleAdd(definitionEntry) {
+//   // let wordEntry = this.state.wordEntry;
+//   // let definitionEntry = this.state.definitionEntry;
+//   this.setState({
+//     // wordEntry: wordEntry,
+//     definitionEntry: definitionEntry
+//   })
+//   console.log(this.state.definitionEntry, 'state here')
+//   // if (wordEntry !== '' && definitionEntry !== '') {
+//   //   // axios.post
+//   //   // axios.get
+//   // }
+// }

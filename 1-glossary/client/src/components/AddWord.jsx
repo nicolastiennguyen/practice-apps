@@ -7,7 +7,7 @@ class AddWord extends React.Component{
   }
 
   handleChange(e) {
-    this.props.onWordEntryChange(e.target.value, undefined)
+    this.props.onWordEntryChange(e.target.value)
   }
 
   render() {

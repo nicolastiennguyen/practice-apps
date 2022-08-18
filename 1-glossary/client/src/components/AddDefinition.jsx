@@ -7,7 +7,7 @@ class AddDefinition extends React.Component {
   }
 
   handleChange(e) {
-    this.props.onDefinitionEntryChange(undefined, e.target.value)
+    this.props.onDefinitionEntryChange(e.target.value)
   }
 
   render() {

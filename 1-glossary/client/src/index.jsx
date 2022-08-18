@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import ReactDOM from "react-dom";
 import TermList from "./components/TermList.jsx"
 import axios from "axios"
-import seedData from "./seedData.jsx"
 import Search from "./components/Search.jsx"
 import AddWord from "./components/AddWord.jsx"
 import AddDefinition from "./components/AddDefinition.jsx"
@@ -68,12 +67,12 @@ class App extends React.Component {
             AllTerms: res.data
           })
         }))
-    } else if (wordEntry === '' && defnitionEntry === '') {
-      alert('Please enter in a word & definition')
+    } else if (wordEntry === '' && definitionEntry === '') {
+      alert('Please enter in a word & definition.')
     } else if (wordEntry === '') {
-      alert('Please enter in a word')
+      alert('Please enter in a word.')
     } else {
-      alert('Please enter in a definition')
+      alert('Please enter in a definition.')
     }
   }
 
@@ -81,14 +80,12 @@ class App extends React.Component {
     this.setState({
       wordEntry: wordEntry,
     })
-    console.log(this.state.wordEntry, 'wordEntry state here')
   }
 
   onDefinitionEntryChange(definitionEntry) {
     this.setState({
       definitionEntry: definitionEntry
     })
-    console.log(this.state.definitionEntry, 'definitionEntry state here')
   }
 
   render() {

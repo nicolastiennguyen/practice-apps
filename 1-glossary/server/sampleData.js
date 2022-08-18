@@ -1,3 +1,7 @@
+// this file stores initial values that we can insert into our database using the script loadSampleData
+
+var db = require('./db.js')
+
 var sampleData = [
   {word: 'consider', definition: 'deem to be'},
   {word: 'minute', definition: 'infinitely or immeasurably small'},
@@ -11,7 +15,8 @@ var sampleData = [
   {word: 'concept', definition: 'an abstract or general idea inferred from specific instances'},
 ]
 
-let i = Math.ceil(Math.random() * sampleData.length)
-var seedData = sampleData.slice(0, i)
-
-export default seedData;
+db.save(sampleData, (err) => {
+  if (err) {
+    console.log('seedData not saved to database')
+  }
+})

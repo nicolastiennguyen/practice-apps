@@ -41,6 +41,7 @@ class App extends React.Component {
     let filteredTerms = this.state.DisplayedTerms.filter((term) => {
       return term.word.toLowerCase().includes(e.target.value.toLowerCase())
     })
+    console.log(this.state.DisplayedTerms)
     if (filteredTerms.length !== 0) {
       this.setState({DisplayedTerms:filteredTerms})
     } else {

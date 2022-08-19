@@ -19,7 +19,9 @@ app.use(logger);
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
-app.use(express.json())
+
+// automatically parses incoming data and stringifies outcoming data
+app.use(express.json());
 
 //Other routes here....
 app.post('/checkout', (req, res) => {

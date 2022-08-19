@@ -23,8 +23,13 @@ app.use(express.json())
 
 //Other routes here....
 app.post('/checkout', (req, res) => {
-  console.log('post: route working')
   controllers.post(req, res);
+  console.log('post: route working');
+})
+
+app.get('/checkout', (req, res) => {
+  controllers.get(req, res);
+  console.log('get: route working');
 })
 
 app.listen(process.env.PORT);

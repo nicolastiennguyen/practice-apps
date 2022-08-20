@@ -8,33 +8,31 @@ import ConfirmationPage from './ConfirmationPage.jsx'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      page: 0
-    };
+    this.state = {};
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage(page) {
-    this.setState({page: page});
+  changePage(page, obj) {
+    this.setState({page: page, data: obj});
   }
 
   render() {
     let CurrentPage = <div>{<HomePage changePage = {this.changePage}/>}</div>
     switch(this.state.page) {
       case 0:
-        CurrentPage = <div>{<HomePage changePage = {this.changePage}/>}</div>
+        CurrentPage = <div>{<HomePage changePage = {this.changePage} />}</div>
         break;
       case 1:
         CurrentPage = <div>{<FirstForm changePage = {this.changePage}/>}</div>
         break;
       case 2:
-        CurrentPage = <div>{<SecondForm changePage = {this.changePage}/>}</div>
+        CurrentPage = <div>{<SecondForm changePage = {this.changePage} rollingData = {this.state.data}/>}</div>
         break;
       case 3:
-        CurrentPage = <div>{<ThirdForm changePage = {this.changePage}/>}</div>
+        CurrentPage = <div>{<ThirdForm changePage = {this.changePage} rollingData = {this.state.data}/>}</div>
         break;
       case 4:
-        CurrentPage = <div>{<ConfirmationPage changePage = {this.changePage}/>}</div>
+        CurrentPage = <div>{<ConfirmationPage changePage = {this.changePage} rollingData = {this.state.data}/>}</div>
         break;
     }
     return (

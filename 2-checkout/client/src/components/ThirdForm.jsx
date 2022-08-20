@@ -1,17 +1,33 @@
 import React from 'react';
+import axios from 'axios';
 
 class ThirdForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      creditcard: '',
+      expiry: '',
+      cvv: '',
+      billingzip: ''
     };
+    this.handleChangeCreditCard = this.handleChangeCreditCard.bind(this);
+    this.handleChangeExpiry = this.handleChangeExpiry.bind(this);
+    this.handleChangeCvv = this.handleChangeCvv.bind(this);
+    this.handleChangeBilling = this.handleChangeBilling.bind(this);
     this.handleNext = this.handleNext.bind(this);
   }
 
+  handleChangeCreditCard(e) {this.setState({creditcard: e.target.value})}
+  handleChangeExpiry(e) {this.setState({expiry: e.target.value})}
+  handleChangeCvv(e) {this.setState({cvv: e.target.value})}
+  handleChangeBilling(e) {this.setState({billingzip: e.target.value})}
+
   handleNext(e) {
     e.preventDefault()
-    this.props.changePage(4)
+    let currentData = {...this.props.rollingData, ...this.state}
+    axios
+      .post('./checkout', currentData)
+    this.props.changePage(4, currentData)
   }
 
   render() {
@@ -25,13 +41,13 @@ class ThirdForm extends React.Component {
       <h3>Enter in your Billing Information:</h3>
       <label>
         Credit Card Number:
-        <input type = "text" />
+        <input type = "text" onChange = {this.handleChangeCreditCard}/>
         Expiry Date:
-        <input type = "text" />
+        <input type = "text" onChange = {this.handleChangeExpiry}/>
         CVV:
-        <input type = "text" />
+        <input type = "text" onChange = {this.handleChangeCvv}/>
         Billing Zip Code
-        <input type = "text" />
+        <input type = "text" onChange = {this.handleChangeBilling}/>
       </label>
       <button>Next</button>
     </div>

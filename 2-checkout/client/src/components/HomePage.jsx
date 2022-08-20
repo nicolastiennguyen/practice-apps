@@ -12,7 +12,6 @@ class HomePage extends React.Component {
   handleNext(e) {
     e.preventDefault()
     this.props.changePage(1);
-    // here we can axios.post all of the information as we press next?
   }
 
   render() {

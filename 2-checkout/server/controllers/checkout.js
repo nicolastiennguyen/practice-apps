@@ -2,7 +2,8 @@ const models = require('../models/checkout.js');
 
 module.exports = {
   post: (req, res) => {
-    var params = [req.body.name]
+    var params = [req.body.name, req.body.email, req.body.password, req.body.address1, req.body.address2, req.body.city, req.body.state, req.body.zip, req.body.phone, req.body.creditcard, req.body.expiry, req.body.cvv, req.body.billingzip]
+    console.log(req.body)
     models.post(params, (err, data) => {
       if (err) {
         res.sendStatus(400);

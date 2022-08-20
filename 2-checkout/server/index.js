@@ -18,6 +18,7 @@ app.use(sessionHandler);
 app.use(logger);
 
 // Serves up all static and generated assets in ../client/dist.
+// connects backend to client/dist/index.html
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // automatically parses incoming data and stringifies outcoming data

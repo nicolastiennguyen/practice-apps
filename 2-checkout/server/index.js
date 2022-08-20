@@ -19,6 +19,8 @@ app.use(logger);
 
 // Serves up all static and generated assets in ../client/dist.
 // connects backend to client/dist/index.html
+// dirname = nicolastiennguyen....2-checkout
+// path will add ../client/dist to the dirname
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // automatically parses incoming data and stringifies outcoming data

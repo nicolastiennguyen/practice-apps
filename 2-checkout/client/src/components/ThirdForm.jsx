@@ -4,7 +4,7 @@ class ThirdForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 3
+
     };
     this.handleNext = this.handleNext.bind(this);
   }
@@ -22,7 +22,18 @@ class ThirdForm extends React.Component {
       <p>
         <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
       </p>
-      <button onSubmit = {this.handleNext}>Next</button>
+      <h3>Enter in your Billing Information:</h3>
+      <label>
+        Credit Card Number:
+        <input type = "text" />
+        Expiry Date:
+        <input type = "text" />
+        CVV:
+        <input type = "text" />
+        Billing Zip Code
+        <input type = "text" />
+      </label>
+      <button>Next</button>
     </div>
     </form>
     )

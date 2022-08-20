@@ -46,8 +46,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// thoughts:
-// this.state.0 = home page
-// next button will increment page by conditional rendering based on state
-// if (this.state.0 === true) --> load home page, and so on

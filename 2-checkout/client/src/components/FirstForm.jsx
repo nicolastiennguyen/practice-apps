@@ -4,7 +4,7 @@ class FirstForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1
+
     };
     this.handleNext = this.handleNext.bind(this);
   }
@@ -22,7 +22,16 @@ class FirstForm extends React.Component {
       <p>
         <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
       </p>
-      <button onSubmit = {this.handleNext}>Next</button>
+      <label>
+        <h3>Account Creation:</h3>
+        Name:
+        <input type = "text" />
+        Email:
+        <input type = "text" />
+        Password:
+        <input type = "text" />
+      </label>
+      <button>Next</button>
     </div>
     </form>
     )

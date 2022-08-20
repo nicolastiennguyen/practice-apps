@@ -4,7 +4,7 @@ class SecondForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 2
+
     };
     this.handleNext = this.handleNext.bind(this);
   }
@@ -22,7 +22,22 @@ class SecondForm extends React.Component {
       <p>
         <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
       </p>
-      <button onSubmit = {this.handleNext}>Next</button>
+      <h3>Enter in your Shipping Information:</h3>
+      <label>
+        Address Line 1:
+        <input type = "text" />
+        Address Line 2:
+        <input type = "text" />
+        City
+        <input type = "text" />
+        State
+        <input type = "text" />
+        Zip Code
+        <input type = "text" />
+        Phone Number
+        <input type = "text" />
+      </label>
+      <button>Next</button>
     </div>
     </form>
     )

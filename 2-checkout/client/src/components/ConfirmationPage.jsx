@@ -4,9 +4,13 @@ class ConfirmationPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 4
+
     };
     this.handleNext = this.handleNext.bind(this);
+  }
+
+  componentDidMount() {
+    // axios GET and display the data
   }
 
   handleNext(e) {
@@ -22,7 +26,7 @@ class ConfirmationPage extends React.Component {
       <p>
         <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
       </p>
-      <button onSubmit = {this.handleNext}>Next</button>
+      <button>Confirm Order</button>
     </div>
     </form>
     )

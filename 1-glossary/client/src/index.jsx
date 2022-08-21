@@ -7,6 +7,7 @@ import axios from "axios"
 import Search from "./components/Search.jsx"
 import AddWord from "./components/AddWord.jsx"
 import AddDefinition from "./components/AddDefinition.jsx"
+// import TermEntry from "./components/TermEntry.jsx"
 
 
 class App extends React.Component {

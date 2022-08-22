@@ -18,14 +18,11 @@ class ConfirmationPage extends React.Component {
 
   handleNext(e) {
     e.preventDefault()
-    // this.props.changePage(0)
-    // console.log(this.state.info)
-    // let currentData = this.state.info.map((item) => item.name)
-    // console.log(currentData)
+    this.props.changePage(0)
   }
 
   render() {
-    let currentData = JSON.stringify(this.state.info)
+    let currentData = JSON.stringify(this.state.info[this.state.info.length - 1])
     return (
       <form onSubmit = {this.handleNext}>
       <div>
